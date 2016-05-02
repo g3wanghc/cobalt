@@ -70,6 +70,7 @@ db.sync = () => {
   db.update('textbooks')
   db.update('courses')
   db.update('athletics')
+  db.update('events')
 }
 
 db.check = (callback) => {

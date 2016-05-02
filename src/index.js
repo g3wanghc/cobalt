@@ -6,6 +6,7 @@ import buildings from './api/buildings'
 import textbooks from './api/textbooks'
 import food from './api/food'
 import athletics from './api/athletics'
+import events from './api/events'
 import db from './db'
 
 let test = process.argv.join().match('/ava/')

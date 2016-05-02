@@ -48,7 +48,8 @@
       "test/buildings",
       "test/textbooks",
       "test/food",
-      "test/athletics"
+      "test/athletics",
+      "test/events"
     ],
     "failFast": true,
     "require": [
