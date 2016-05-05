@@ -1,11 +1,11 @@
-import Athletics from '../model'
+import Exams from '../model'
 import co from 'co'
 
-export default function search(req, res, next) {
+export default function list(req, res, next) {
   co(function* () {
     try {
-      let docs = yield Athletics
-        .find({ $text: { $search: req.query.q } }, '-__v -_id -events._id')
+      let docs = yield Exams
+        .find({}, '-__v -_id -sections._id')
         .limit(req.query.limit)
         .skip(req.query.skip)
         .sort(req.query.sort)

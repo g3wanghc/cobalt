@@ -1,13 +1,17 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import winston from 'winston'
-import courses from './api/courses'
-import buildings from './api/buildings'
-import textbooks from './api/textbooks'
-import food from './api/food'
-import athletics from './api/athletics'
-import events from './api/events'
 import db from './db'
+
+import athletics from './api/athletics'
+import buildings from './api/buildings'
+import courses from './api/courses'
+import exams from './api/exams'
+import food from './api/food'
+import events from './api/events'
+import textbooks from './api/textbooks'
+import transportation from './api/transportation'
+import cdf from './api/cdf'
 
 let test = process.argv.join().match('/ava/')
 let enableSync = process.env.COBALT_ENABLE_DB_SYNC || 'true'
@@ -30,11 +34,14 @@ if (!test && enableSync == 'true') {
 
 // API routes
 let apiVersion = '1.0'
-app.use(`/${apiVersion}/courses`, courses)
-app.use(`/${apiVersion}/buildings`, buildings)
-app.use(`/${apiVersion}/textbooks`, textbooks)
-app.use(`/${apiVersion}/food`, food)
 app.use(`/${apiVersion}/athletics`, athletics)
+app.use(`/${apiVersion}/buildings`, buildings)
+app.use(`/${apiVersion}/courses`, courses)
+app.use(`/${apiVersion}/exams`, exams)
+app.use(`/${apiVersion}/food`, food)
+app.use(`/${apiVersion}/textbooks`, textbooks)
+app.use(`/${apiVersion}/transportation`, transportation)
+app.use(`/${apiVersion}/cdf`, cdf)
 
 // Error handlers
 app.use((req, res, next) => {

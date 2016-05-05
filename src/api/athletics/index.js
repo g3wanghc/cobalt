@@ -3,34 +3,25 @@ let router = express.Router()
 
 import list from './routes/list'
 import show from './routes/show'
-import search from './routes/search'
 import filter from './routes/filter'
 
-import validation from '../validation'
+import Validator from '../utils/validator'
 
 router.get('/',
-  validation.limit,
-  validation.skip,
-  validation.sort,
+  Validator.limit,
+  Validator.skip,
+  Validator.sort,
   list)
 
-router.get('/search',
-  validation.query,
-  validation.limit,
-  validation.skip,
-  validation.sort,
-  search)
-
 router.get('/filter',
-  validation.query,
-  validation.filterQuery,
-  validation.limit,
-  validation.skip,
-  validation.sort,
+  Validator.query,
+  Validator.limit,
+  Validator.skip,
+  Validator.sort,
   filter)
 
-router.get('/:id',
-  validation.id,
+router.get('/:date',
+  Validator.date,
   show)
 
 export default router
